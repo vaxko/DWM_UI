@@ -10,7 +10,7 @@
     <string name="appName">Dine With Me?</string>
     <string name="title_activity_second">Second</string>
     <string name="SecondPage">Second Page</string>
-    <string name="register">Create Account</string>
+    <string name="register">Create User</string>
     <string name="usernameR">Username</string>
     <string name="passR">Password</string>
     <string name="firstname">First Name</string>
@@ -28,12 +28,7 @@
     <string name="title_activity_shopping_list">ShoppingList</string>
     <string name="title_activity_events">Events</string>
     <string name="title_activity_recipes">Recipes</string>
+    <string name="title_activity_create_user">CreateUser</string>
+    <string name="title_activity_menu">Menu</string>
 
-</resources> <!-- //HOME -->
-<!-- //Friends -->
-<!-- //Shopping List -->
-<!-- //Event -->
-<!-- //Recipes -->
-<!-- //Logout -->
-
-
+</resources>

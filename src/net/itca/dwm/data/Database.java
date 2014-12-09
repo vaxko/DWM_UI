@@ -3,55 +3,62 @@ package net.itca.dwm.data;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
-public class Database
+/**
+ * 
+ * @author Dylan Only database, access with JDBC.
+ */
+public class Database /* implements Datasource */
 {
-	/**
-	 * ReadUsers
-	 * WriteUser
-	 * ReadEvents
-	 * WriteEvent
-	 * Login
-	 */
-	String url;
-	Connection connection;
+	protected Connection connection;
+	protected String url = "jdbc:postgresql://127.0.0.1:5432/postgres";
+	protected String dbpassword = "local";
+	protected String schema = "dinewithme";
+
 	public Database()
-	{
-	}
-	
-	private void connect()
 	{
 		try
 		{
-		url  = "jdbc:postgresql://gegevensbanken.khleuven.be:51415/probeer?sslfactory=org.postgresql.ssl.NonValidatingFactory&ssl=true";
-		Class.forName("org.postgresql.Driver");
-		
-		connection = DriverManager.getConnection(url, "***",
-				"***");
-		
-		}
-		catch(Exception ex)
+			Class.forName("org.postgresql.Driver");
+
+		} catch (Exception ex)
 		{
-			
+			ex.printStackTrace();
 		}
-		finally
+
+	}
+
+	protected void openConnection()
+	{
+		try
 		{
-			if(connection != null)
+			if(connection==null)
+				connection = DriverManager.getConnection(url, "postgres",dbpassword);
+		
+			Statement statement = connection.createStatement(); 
+			statement.execute("set search_path to '" + schema + "'"); 
+			statement.close();
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	protected void closeConnection()
+	{
+		if (connection != null)
+		{
+			try
 			{
-				try
-				{
-					connection.close();
-				} catch (SQLException e)
-				{
-					e.printStackTrace();
-				}
+				connection.close();
+			} catch (SQLException e)
+			{
+				e.printStackTrace();
 			}
 		}
 	}
-	
-	public boolean Login(String username, String password)
-	{
-		System.out.println("Logging in: " + username + " " + password);
-		return true;
-	}
+
+
 }
