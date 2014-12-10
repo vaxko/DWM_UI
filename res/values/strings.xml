@@ -30,5 +30,11 @@
     <string name="title_activity_recipes">Recipes</string>
     <string name="title_activity_create_user">CreateUser</string>
     <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_add_friend">AddFriend</string>
+    <string name="title_activity_view_friends">ViewFriends</string>
+    <string name="title_activity_create_event_panel">CreateEventPanel</string>
+    <string name="title_activity_create_recipe">CreateRecipe</string>
+    <string name="title_activity_view_recipes">ViewRecipes</string>
+    <string name="title_activity_login_home">LoginHome</string>
 
 </resources>

@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginPanel"
+            android:name=".Login"
             android:label="@string/title_activity_login_panel" >
         </activity>
         <activity
@@ -33,6 +33,42 @@
         <activity
             android:name=".Menu"
             android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name=".AddFriend"
+            android:label="@string/title_activity_add_friend" >
+        </activity>
+        <activity
+            android:name=".ViewFriends"
+            android:label="@string/title_activity_view_friends" >
+        </activity>
+        <activity
+            android:name=".CreateEventPanel"
+            android:label="@string/title_activity_create_event_panel" >
+        </activity>
+        <activity
+            android:name=".Events"
+            android:label="@string/title_activity_events" >
+        </activity>
+        <activity
+            android:name=".Friends"
+            android:label="@string/title_activity_friends" >
+        </activity>
+        <activity
+            android:name=".Recipes"
+            android:label="@string/title_activity_recipes" >
+        </activity>
+        <activity
+            android:name=".CreateRecipe"
+            android:label="@string/title_activity_create_recipe" >
+        </activity>
+        <activity
+            android:name=".ViewRecipes"
+            android:label="@string/title_activity_view_recipes" >
+        </activity>
+        <activity
+            android:name=".LoginHome"
+            android:label="@string/title_activity_login_home" >
         </activity>
     </application>
 

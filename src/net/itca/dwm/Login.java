@@ -1,53 +1,51 @@
 package net.itca.dwm;
 
-import net.itca.dwm.controller.LoginHomeController;
+
 import net.itca.dwm.core.DineWithMeFacade;
+import net.itca.dwm.data.Database;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.content.Intent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+public class Login extends Activity implements OnClickListener{
 
-public class CreateUser extends Activity implements OnClickListener{
-	
 	DineWithMeFacade facade;
+	Database database;
 	String username;
 	String password;
-	String firstname;
-	String lastname;
-	Button create;	
+	Button login;	
+	Button register;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_register);
+		setContentView(R.layout.activity_login_panel);
 		
-		EditText usernameLabel = (EditText)findViewById(R.id.editText1);
+		EditText usernameLabel = (EditText)findViewById(R.id.editText1); 
 		username = usernameLabel.getText().toString();
 		
 		EditText passwordLabel = (EditText)findViewById(R.id.editText2);
 		password = passwordLabel.getText().toString();
 		
-		EditText firstLabel = (EditText)findViewById(R.id.editText3);
-		firstname = firstLabel.getText().toString();
-		
-		EditText lastLabel = (EditText)findViewById(R.id.editText4);
-		lastname = lastLabel.getText().toString();
-		 		
-		create = (Button)findViewById(R.id.button1);
-		create.setOnClickListener(this);
+		login = (Button)findViewById(R.id.button1);
+		register = (Button)findViewById(R.id.button2);
+		login.setOnClickListener(this);
+		register.setOnClickListener(this);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.register, menu);
+		getMenuInflater().inflate(R.menu.login_panel, menu);
 		return true;
 	}
 
@@ -66,20 +64,24 @@ public class CreateUser extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		//facade.createUser(username, password, firstname, lastname);
-		
-/*		switch (v.getId()) {
+		switch (v.getId()) {
 		case R.id.button1:
-					
+			
+			boolean sucess  = facade.login(username, facade.encrypt(password));
+			
 			if(sucess == true){
 				Intent i = new Intent(this, LoginHome.class);
 				startActivity(i); 
 			}
 			
 			break;
+		case R.id.button2:
+			
+			Intent i = new Intent(this, CreateUser.class);
+			startActivity(i);
 		
 		default:
 			break;
-		}*/
+		}
 	}
 }
